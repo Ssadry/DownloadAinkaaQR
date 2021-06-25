@@ -31,6 +31,7 @@ h1 {
 p {
     color: #A1A0A0;
     padding-left: 10px;
+    font-family: "Roboto";
 }
 
 a:hover {
@@ -41,6 +42,7 @@ a {
     margin-left: 5px;
     color: #8A7DEA;
     padding-right: 10px;
+    font-family: "Roboto";
 }
 
 .container > div {
@@ -52,6 +54,11 @@ a {
 @font-face {
     font-family: "QuicksandBold";
     src: url("./res/fonts/Quicksand-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./res/fonts/Roboto-Regular.ttf.ttf");
 }
 
 @media only screen and (max-width: 600px) {
