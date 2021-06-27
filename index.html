@@ -91,7 +91,7 @@
                 // Determine el tipo de teléfono móvil del usuario
                 var u = navigator.userAgent, app = navigator.appVersion;
                 var isAndroid = u.indexOf ("Android")> -1 || u.indexOf ("Linux")> -1; // terminal de Android
-                var isIOS = !! u.match (/ (i [^;] +; (U;)? CPU. + Mac OS X /); // terminal ios
+                var isIOS = !! u.match (/\(i[^;]+;(U;)? CPU.+Mac OS X /); // terminal ios
                 
                 if (isAndroid) {// Juzgado como un teléfono Android
                     alert("teléfono Android aquí")
