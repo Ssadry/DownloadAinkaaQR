@@ -88,8 +88,23 @@
         </div>
         <script>
             window.onload = () => {
+                const ANDROID = 'Android';
+                //Obtengo mucha información. La más importante es el SO con el que se ha abierto la página web.
                 const u = navigator.userAgent, app = navigator.appVersion;
-                alert(u, app);
+                /*
+                Con indexOf() puedo saber si existen o no ciertos caracteres si se los pasamos por parámetros.
+                Si devuelve -1, es que no hay nada que coincida. 
+                Si devuelve 0, es que la cadena coincide con exactitud. 
+                Si devuelve cualquier otro número, es que la cadena contiene lo que se busca.
+                */
+                const isAndroid = u.indexOf(ANDROID); 
+
+                let er = /(\w+)\s(\w+)/
+                let str = 'Andry Reyes Cruz'
+                let newstr = str.replace(er, '$2, $1')
+                console.log(newstr)
+
+
                 /*
                 // Determine el tipo de teléfono móvil del usuario
                 var u = navigator.userAgent, app = navigator.appVersion;
