@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <meta http-equiv="Refresh" content="0;URL=./res/app/ainkaapp.apk">  -->
         <title>Ainkaa</title>
         <style>
             * {
@@ -52,9 +51,12 @@
                 color: #8A7DEA;
                 padding-right: 10px;
                 font-family: "Roboto";
+                pointer-events: none;
+                cursor: default;
             }
 
             .container > div {
+                opacity: 0;
                 display: flex;
                 flex-direction: row;
                 margin-top: 20px;
@@ -80,7 +82,7 @@
     <body>
         <div class="container">
             <img src="res/imgs/logo.png" alt="Ainkaa"/>
-            <h1>¡Gracias por descargar Ainkaaa!</h1>
+            <h1>¡Gracias por descargar Ainkaa!</h1>
             <div>
                 <p>Si la descarga no se inicia haga</p>
                 <a href="./res/app/ainkaapp.apk" download>click aquí</a>
@@ -89,16 +91,26 @@
         <script>
             window.onload = () => {
                 // Determine el tipo de teléfono móvil del usuario
-                var u = navigator.userAgent, app = navigator.appVersion;
-                var isAndroid = u.indexOf ("Android")> -1 || u.indexOf ("Linux")> -1; // terminal de Android
+                var u = navigator.userAgent;
                 var isIOS = !! u.match (/\(i[^;]+;(U;)? CPU.+Mac OS X /); // terminal ios
                 
-                if (isAndroid) {// Juzgado como un teléfono Android
-                    alert("teléfono Android aquí")
-                }
-                if (isIOS) {// Identificado como un teléfono Apple
-                    alert("Iphone aquí")
-                    var ua = navigator.userAgent.toLowerCase (); // Obtener el valor UA del navegador
+                if (isIOS) { // Identificado como un teléfono Apple
+                    alert("¡Ainkaa estará disponible pronto para dispositivos IOS!")
+                } else {
+                    const head = document.querySelector('head');
+                    const meta = document.createElement('meta');
+                    meta.httpEquiv = "Refresh";
+                    meta.content = '0;URL=./res/app/ainkaapp.apk';
+                    head.append(meta);
+
+                    setTimeout(() => {
+                        const div = document.querySelector('.container div');
+                        const a = document.querySelector('.container div a');
+
+                        div.style.opacity = 1;
+                        a.style.pointerEvents = 'auto';
+                        a.style.cursor = 'pointer';
+                    }, 1500);
                 }
             }
         </script>
